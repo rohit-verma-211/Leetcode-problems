@@ -1,0 +1,38 @@
+Given a string s consisting of upper/lower-case alphabets and empty space characters ‘ ‘, return the length of the last word in the string. If the last word does not exist, return 0.
+
+Examples:  
+
+Input  : str = "Geeks For Geeks"
+Output : 5
+length(Geeks)= 5
+Input : str = "Start Coding Here"
+Output : 4
+length(Here) = 4
+Input  :  **
+Output : 0
+class Solution {
+    public static int lengthOfLastWord(String s) {
+        
+        int spaceindex=-1;
+        String x=s.trim();
+        int len=x.length();
+        for(int i=len-1;i>=0;i--){
+            if(x.charAt(len-1)==' '){
+                continue;
+            }
+            else if (x.charAt(i)==' '){
+                spaceindex=i;
+                break;
+
+            }
+
+        }
+        return len-spaceindex-1;
+        
+    }
+    public static void main(String[]args){
+        String s="Greeks for Greeks";
+        System.out.println(lengthOfLastWord(s));
+        
+    }
+}
